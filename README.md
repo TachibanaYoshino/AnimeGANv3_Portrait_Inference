@@ -1,7 +1,6 @@
 
 # AnimeGANv3 Portrait Inference 
 
------
 
 ## Introduction
 1. AnimeGANv3's portrait style model focuses more on the stylized transformation of the face area. Such as Kpop, USA, Disney, Trump, Nordic_myth2 and Arcane.
@@ -13,13 +12,20 @@
 ## Usage  
 
 ### 1. Install Dependencies  
-   `pip install -r requirements.txt`
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ### 2. Batch inference on images
 #### 1. For a single image.
-  `python onnx_infer.py -i data/sample/1.jpg -m ../deploy/models/AnimeGANv3_large_Kpop.onnx -o ./out --background`    <br>
-#### 2. For Multiple images.
-  `python onnx_infer.py -i data/sample -m ../deploy/models/AnimeGANv3_large_Kpop.onnx -o ./out --background`    <br>
+  ```bash
+  python onnx_infer.py -i data/sample/1.jpg -m ../deploy/models/AnimeGANv3_large_Kpop.onnx -o ./out --background
+  ```
+
+#### 2. For Multiple images.  
+ ```bash
+  python onnx_infer.py -i data/sample -m ../deploy/models/AnimeGANv3_large_Kpop.onnx -o ./out --background
+  ```
 
 ##### 🔸 Parameter Description
 - -i , The location of the input image or the directory where the images are located
@@ -31,8 +37,9 @@
  
 
 ### 3. Inference on video
-  > `export CUDA_VISIBLE_DEVICES=0 && python onnx_infer.py -i ../1.mp4 -m ../deploy/models/AnimeGANv3_large_Kpop.onnx -o ./out --background --IfConcat Horizontal`  
-
+```bash
+  export CUDA_VISIBLE_DEVICES=0 && python onnx_infer.py -i ../1.mp4 -m ../deploy/models/AnimeGANv3_large_Kpop.onnx -o ./out --background --IfConcat Horizontal 
+```
 ##### 🔸 Parameter Description
 - -i , The location of the input video
 - -m , The path where the onnx model of AnimeGANv3 is located
@@ -42,34 +49,13 @@
 
 ## Comparison  
 
-##### 👀 The results shown in the table below demonstrate the difference in the final effects of the two inference methods.
-◼️The script [test_by_onnx.py](https://github.com/TachibanaYoshino/AnimeGANv3/blob/master/deploy/test_by_onnx.py) provided by AnimeGANv3 simply performs a single inference on the entire image. Its inference speed is faster, but the effect on the face may not be perfect.  <br>
-◼️This library can process the face and background in the image separately, so as to obtain better conversion effect.
+#### 👀 The results shown in the table below demonstrate the difference in the final effects of the two inference methods.
+◼️ The script [test_by_onnx.py](https://github.com/TachibanaYoshino/AnimeGANv3/blob/master/deploy/test_by_onnx.py) provided by AnimeGANv3 simply performs a single inference on the entire image. Its inference speed is faster, but the effect on the face may not be perfect.  <br>
+◼️ This library can process the face and background in the image separately, so as to obtain better conversion effect.
 
-<table border="1px ridge">
-	<tr align="center">
-	    <th>Input photo</th>
-	    <th ><a href="https://github.com/TachibanaYoshino/AnimeGANv3/blob/master/deploy/test_by_onnx.py">test_by_onnx.py</a> </th>  
-	    <th > onnx_infer.py    </th>
-        <th>Style</th>
-	</tr >
-	<tr align="center">
-      <td> <img src="data/a/6.jpg"  /> </td>
-      <td> <img src="data/b/Arcane/6.jpg"   /> </td>
-      <td> <img src="data/c/Arcane/6.jpg" /> </td>
-        <td> <a href="https://github.com/TachibanaYoshino/AnimeGANv3#art-face-to-arcane-style">Arcane</a> </td>
-	</tr>
-	<tr align="center">
-      <td> <img src="data/a/3.jpg"  /> </td>
-      <td> <img src="data/b/Kpop/3.jpg"   /> </td>
-      <td> <img src="data/c/Kpop/3.jpg" /> </td>
-        <td> <a href="https://github.com/TachibanaYoshino/AnimeGANv3#art-face-to-kpop-style">Kpop</a> </td>
-	</tr>
-	<tr align="center">
-     <td> <img src="data/a/0.jpg"  /> </td>
-      <td> <img src="data/b/USA/0.jpg"   /> </td>
-      <td> <img src="data/c/USA/0.jpg" /> </td>
-        <td> <a href="https://github.com/TachibanaYoshino/AnimeGANv3#art-face-to-usa-cartoon-style">USA</a> </td>
-	</tr>
-     
-</table>  
+| Input photo | <a href="https://github.com/TachibanaYoshino/AnimeGANv3/blob/master/deploy/test_by_onnx.py">test_by_onnx.py</a> | onnx_infer.py | Style |
+| :-: |:-:| :-:| :-: |
+|<img src="data/a/6.jpg"  />|<img src="data/b/Arcane/6.jpg" />|<img src="data/c/Arcane/6.jpg" />| <a href="https://github.com/TachibanaYoshino/AnimeGANv3#art-face-to-arcane-style">Arcane</a> |
+|<img src="data/a/3.jpg"  />|<img src="data/b/Kpop/3.jpg"   />|<img src="data/c/Kpop/3.jpg" />|   <a href="https://github.com/TachibanaYoshino/AnimeGANv3#art-face-to-kpop-style">Kpop</a> |
+|<img src="data/a/0.jpg"  />|<img src="data/b/USA/0.jpg"   />|<img src="data/c/USA/0.jpg" />|     <a href="https://github.com/TachibanaYoshino/AnimeGANv3#art-face-to-usa-cartoon-style">USA</a> |
+    
