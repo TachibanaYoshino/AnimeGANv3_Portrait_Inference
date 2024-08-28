@@ -1,0 +1,5 @@
+onnxruntime-gpu
+numpy
+opencv-python
+tqdm
+Pillow=9.5.0
