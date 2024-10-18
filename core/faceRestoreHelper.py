@@ -141,6 +141,16 @@ def paste_faces_to_image(img, restored_faces, inverse_affine_matrices,upscale_fa
             MASK_COLORMAP = [0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 255, 0, 0, 0]
             for idx, color in enumerate(MASK_COLORMAP):
                 mask[out == idx] = color
+            # Prevent the head and the background from having abrupt edges when they merge.
+            dist = 50  # Buffer distance from edge
+            if np.any(mask[0:dist, :] == 0):
+                mask[0:dist, :] = 0
+            if np.any(mask[-dist:, :] == 0):
+                mask[-dist:, :] = 0
+            if np.any(mask[:, 0:dist] == 0):
+                mask[:, 0:dist] = 0
+            if np.any(mask[:, -dist:] == 0):
+                mask[:, -dist:] = 0
             #  blur the mask
             mask = cv2.GaussianBlur(mask, (101, 101), 11)
             mask = cv2.GaussianBlur(mask, (101, 101), 11)
