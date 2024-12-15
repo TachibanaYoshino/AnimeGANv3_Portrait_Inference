@@ -1,6 +1,8 @@
 
 # AnimeGANv3 Portrait Inference 
 
+## 📢 Updates    
+* `2024-12-15` Released the **rknn**-based model conversion and inference [repo](https://github.com/TachibanaYoshino/AnimeGANv3_Portrait_Inference/tree/rknn). 
 
 ## Introduction
 1. AnimeGANv3's portrait style model focuses more on the stylized transformation of the face area. Such as Kpop, USA, Disney, Trump, Nordic_myth2 and Arcane.
