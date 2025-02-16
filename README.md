@@ -41,5 +41,5 @@ Use the script files in **onnx2rknn_src** to convert the onnx models of retianfa
 
 ## Note
 1. The computing power of edge devices is limited, so when converting the full image (background), the original image is reduced to a fixed scale of 640*640 for background conversion.  
-2. If you want to use tensorRT to perform inference on a GPU host, you can also convert all onnx models into tensorRT models in the second step above, and then replace the rknn inference framework of the codebase with tensorRT.
+2. The **TensorRT**-based model conversion and inference [repo](https://github.com/TachibanaYoshino/AnimeGANv3_Portrait_Inference/tree/tensorRT). 
 
