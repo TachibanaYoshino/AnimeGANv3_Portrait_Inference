@@ -17,10 +17,10 @@ except:
 
 class RetinaFACE():
     def __init__(self, rknn_model=model_args.Retina_face_model_path, cfg=cfg_re50, confidence_threshold=0.8, top_k=50, nms_threshold=0.4, keep_top_k=20):
-        self.confidence_threshold = 0.8
-        self.top_k = 50
-        self.nms_threshold = 0.4
-        self.keep_top_k = 20
+        self.confidence_threshold = confidence_threshold
+        self.top_k = top_k
+        self.nms_threshold = nms_threshold
+        self.keep_top_k = keep_top_k
         self.cfg = cfg_re50  # cfg_mnet
 
         self.priorbox = PriorBox(self.cfg, image_size=(840, 840))
