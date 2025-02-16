@@ -2,6 +2,7 @@
 # AnimeGANv3 Portrait Inference 
 
 ## 📢 Updates    
+* `2025-02-16` Released the **TensorRT**-based model conversion and inference [repo](https://github.com/TachibanaYoshino/AnimeGANv3_Portrait_Inference/tree/tensorRT). 
 * `2024-12-15` Released the **rknn**-based model conversion and inference [repo](https://github.com/TachibanaYoshino/AnimeGANv3_Portrait_Inference/tree/rknn). 
 
 ## Introduction
