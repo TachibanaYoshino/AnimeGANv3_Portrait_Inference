@@ -1,5 +1,9 @@
-onnxruntime-gpu
+argparse
 numpy
 opencv-python
 tqdm
 Pillow=9.5.0
+gradio
+easydict
+pycuda
+tensorrt
