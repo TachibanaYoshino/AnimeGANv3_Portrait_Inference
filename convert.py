@@ -107,8 +107,10 @@ def video_enforce(input, output, v3_models, background, IfConcat, use_parse):
         command = ["ffmpeg", "-loglevel", "error", "-i", input, "-y", ouput_sound_path]
         r = subprocess.check_call(command)  # Get the audio of the input video (MP3)
         ouput_videoSounds_path = ouput_video_path.rsplit('.', 1)[0] + f'_sound.mp4'
-        command = ["ffmpeg", "-loglevel", "error", "-i", ouput_sound_path, "-i", ouput_video_path, "-y",
-                   ouput_videoSounds_path]
+        command = ["ffmpeg", "-loglevel", "error", "-i", ouput_sound_path, "-i", ouput_video_path,
+                   "-c:v", "copy",  # Copy the video stream without re-encoding
+                    "-c:a", "aac",  # Encode the audio as AAC
+                    "-y", ouput_videoSounds_path]
         r = subprocess.check_call(command)  # Merge the output video with the sound to get the final result
     except:
         print("ffmpeg fails to obtain audio, generating silent video.")
